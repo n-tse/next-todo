@@ -1,5 +1,6 @@
 // like the root of our application
 
+import ToDoItem from "@/components/ToDoItem";
 import { prisma } from "@/db";
 import Link from "next/link";
 
@@ -30,8 +31,9 @@ export default async function Home() {
         </Link>
       </header>
       <ul>
-        {todos.map(({ id, title }) => {
-          return <li key={id}>{title}</li>;
+        {todos.map(({ id, title, complete }) => {
+          return <ToDoItem id={id} title={title} complete={complete}/>;
+          // return <li key={id}>{title}</li>;
         })}
       </ul>
     </>
